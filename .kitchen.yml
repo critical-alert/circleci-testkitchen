@@ -1,0 +1,27 @@
+---
+driver:
+  name: ec2
+  aws_access_key_id: <%= ENV['AWS_ACCESS_KEY'] %>
+  aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
+  aws_ssh_key_id: <%= ENV['AWS_SSH_KEY_ID'] %>
+  ssh_key: <%= File.expand_path('~/.ssh/id_circleci') %>
+  flavor_id: t1.micro
+  security_group_ids: ["sg-af40b4ca"]
+  region: ap-northeast-1
+  availability_zone: ap-northeast-1c
+  require_chef_omnibus: true
+ 
+provisioner:
+  name: chef_solo
+ 
+platforms:
+  - name: centos-65-aws
+    driver:
+      image_id: ami-81294380
+      username: root
+ 
+suites:
+  - name: default
+    run_list:
+      - recipe[zsh::default]
+    attributes:

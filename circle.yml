@@ -1,0 +1,16 @@
+machine:
+  timezone:
+    Asia/Tokyo
+  ruby:
+    version:
+      2.1.2
+dependencies:
+  pre:
+    - gem uninstall bundler
+    - gem install bundler --pre
+  override:
+    - bundle install:
+        timeout: 180
+test:
+  post:
+    - bundle exec kitchen test:
