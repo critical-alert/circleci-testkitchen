@@ -4,13 +4,7 @@ machine:
   ruby:
     version:
       2.1.2
-dependencies:
-  pre:
-    - gem uninstall bundler
-    - gem install bundler --pre
+test:
   override:
     - bundle install:
-        timeout: 180
-test:
-  pre:
     - bundle exec kitchen test:
