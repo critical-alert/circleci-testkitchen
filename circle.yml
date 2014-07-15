@@ -5,7 +5,9 @@ machine:
     version:
       2.1.2
 test:
+  pre:
+    - exec kichen:
+        timeout: 600
   override:
     - bundle install
     - bundle exec kitchen test
-        timeout: 600
