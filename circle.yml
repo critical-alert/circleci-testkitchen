@@ -8,4 +8,4 @@ test:
   override:
     - bundle install
     - bundle exec kitchen test
-      timeout: 600
+        timeout: 600
