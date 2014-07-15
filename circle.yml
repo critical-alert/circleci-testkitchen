@@ -6,5 +6,5 @@ machine:
       2.1.2
 test:
   override:
-    - bundle install:
-    - bundle exec kitchen test:
+    - bundle install
+    - bundle exec kitchen test
