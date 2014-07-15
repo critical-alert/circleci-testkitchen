@@ -12,5 +12,5 @@ dependencies:
     - bundle install:
         timeout: 180
 test:
-  post:
+  pre:
     - bundle exec kitchen test:
